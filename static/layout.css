@@ -2,6 +2,7 @@ html, body {
     width: 100%;
     height: 100%;
 }
+
 main, header{
     background-color: #f1f1f1;
 }
@@ -9,14 +10,10 @@ main {
     width: 100%;
     height: 100%;
 }
-
+/** Navigation Bar **/
 #logo {
     max-width: 86px;
     height: auto;
-}
-.nav-item{
-    text-align: center;
-    line-height: 4;
 }
 .nav-link {
     color: black;
@@ -31,4 +28,8 @@ main {
 li > a {
     margin-left: 20px;
     margin-right: 20px;
+}
+/** Main Body **/
+h1 {
+    text-align: center;
 }
