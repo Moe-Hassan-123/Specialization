@@ -4,7 +4,7 @@ THIS IS CS50's Final Project
 
 Description:
 
-In Egypt Students entering grade 11 have to write on a paper what speciality of studying they want and go to school to give it to the head quarter,
+In Egypt Students entering grade 11 have to write on a paper what speciality of studying they want and go to school to give it to the headmaster,
 Then Teachers across the country would spend enormous amount of time and energy to list every student's preferences and their number and name.
 which as any sensible human knows, will cause a lot of problems as humans aren't perfect.
 
