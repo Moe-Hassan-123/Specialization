@@ -1,4 +1,5 @@
 html, body {
+    overflow: hidden;
     width: 100%;
     height: 100%;
 }
@@ -7,6 +8,7 @@ main, header{
     background-color: #f1f1f1;
 }
 main {
+    display: flex;
     width: 100%;
     height: 100%;
 }
@@ -32,4 +34,13 @@ li > a {
 /** Main Body **/
 h1 {
     text-align: center;
+}
+/** Register Page **/
+#form {
+    display: flex;
+    direction: rtl;
+    flex-direction: column;
+    margin: auto;
+    margin-bottom: 25%;
+    width: auto;
 }
