@@ -1,6 +1,6 @@
 # Specialization
 
-                                                                THIS IS CS50's Final Project
+THIS IS CS50's Final Project
 
 Description:
 
