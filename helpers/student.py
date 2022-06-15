@@ -1,7 +1,5 @@
 import sqlite3
 from re import fullmatch
-from regex import P
-from validator_collection import none
 from werkzeug.security import check_password_hash, generate_password_hash
 
 
@@ -10,7 +8,14 @@ class Student:
     A class that stores students in a database and allow mutiple function on them.
     """
 
-    def __init__(self, name, password, national_id, grade, specialization):
+    def __init__(
+        self,
+        name: str,
+        password: str,
+        national_id: str,
+        grade: int,
+        specialization: str,
+    ):
         """
         It Creates a link to the database
         """
@@ -117,7 +122,7 @@ class Student:
             if check_password_hash(self.national_id, national_id) == False:
                 raise ValueError("National Id already registered")
         self.c.execute(
-            """INSERT INTO students   (name,
+            """INSERT INTO students  (name,
                                       password,
                                       national_id,
                                       grade,
@@ -126,10 +131,9 @@ class Student:
             [
                 self.name,
                 self.password,
-                self.national_id,
-                generate_password_hash(self.grade),
+                generate_password_hash(self.national_id),
+                self.grade,
                 self.specialization,
             ],
         )
-        if self.c.lastrowid is None:
-            raise ValueError("insert didnt work")
+        self.db.commit
