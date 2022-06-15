@@ -23,7 +23,7 @@ def give_error(message: str, code: int = 400):
             s = s.replace(old, new)
         return s
 
-    return render_template("apology.html", top=code, bottom=escape(message))
+    return render_template("error.html", top=code, bottom=escape(message))
 
 def login_required(f):
     @wraps(f)
