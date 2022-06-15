@@ -35,8 +35,7 @@ class Student:
     def password(self, password: str):
         if type(password) is not str:
             raise (TypeError)
-        # got this pattern from RockOnGom's comment on stackoverflow(https://stackoverflow.com/a/5142164)
-        # minimum 8 letters and at least one (number, lowercase letter, uppercase letter and special character)
+        # got this pattern from RockOnGom's comment on stackoverflow https://stackoverflow.com/a/5142164
         pattern = (
             r"(?=.*([A-Z]){1,})(?=.*[!@#$&*]{1,})(?=.*[0-9]{1,})(?=.*[a-z]{1,}).{8,100}"
         )
@@ -72,7 +71,7 @@ class Student:
         pattern = r"(?:[\u0621-\u064A]+ ){2}[\u0621-\u064A]+"
         if fullmatch(pattern, name) is None:
             raise ValueError(
-                'Should Provide a Full Name in Arabic\n Example: "محمد حسن محمد"'
+                "Should Provide a Full Name in Arabic"
             )
         self._name = name
 
@@ -82,6 +81,10 @@ class Student:
 
     @grade.setter
     def grade(self, grade: int):
+        try:
+           grade =  int(grade)
+        except TypeError:
+            raise TypeError("Grade must be int")
         if grade not in [11, 12]:
             raise ValueError("Grade Must be 11 or 12")
         self._grade = grade
@@ -102,18 +105,6 @@ class Student:
         self._specialization = specialization
 
     def add(self):
-        ### TODO:
-        ### try to check if all values we need exist
-        values = {
-            "name": self.name,
-            "password": self.password,
-            "national_id": self.national_id,
-            "grade": self.grade,
-            "specialization": self.specialization,
-        }
-        for key in values:
-            if values[key] is None:
-                raise ValueError("Missing Parameters")
         self.c.execute(
             "SELECT national_id FROM students WHERE name = ? AND grade = ? AND specialization = ?",
             [self.name, self.grade, self.specialization],
