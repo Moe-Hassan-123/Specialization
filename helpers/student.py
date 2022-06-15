@@ -39,28 +39,6 @@ class Student:
         return Student.curs.fetchone()[0]
 
     @password.setter
-    def password(cls):
-        ...
-    
-    @property
-    def id(self):
-        return self._id
-
-    @property
-    def national_id():
-        ...
-    
-    @national_id.setter
-    def national_id(self,national_id):
-        # check if it follows the format
-        if fullmatch(r"(2|3)\d{4}([1-9]|[12][0-9]|3[01])\d{6}[1-9]",national_id) is None:
-            raise ValueError("Incorrect National Id")
-        self._national_id = generate_password_hash(national_id)
-    @property
-    def password():
-        ...
-
-    @password.setter
     def password(self,password):
         # got this pattern from RockOnGom's comment on stackoverflow(https://stackoverflow.com/a/5142164)
         pattern = r"(?=.*([A-Z]){1,})(?=.*[!@#$&*]{1,})(?=.*[0-9]{1,})(?=.*[a-z]{1,}).{8,100}"
@@ -69,8 +47,20 @@ class Student:
         self._password = generate_password_hash(password)
 
     @property
-    def name():
+    def national_id(self):
         ...
+    
+    @national_id.setter
+    def national_id(self, national_id):
+        # check if it follows the format
+        if fullmatch(r"(2|3)\d{4}([1-9]|[12][0-9]|3[01])\d{6}[1-9]",national_id) is None:
+            raise ValueError("Incorrect National Id")
+        self._national_id = generate_password_hash(national_id)
+
+    @property
+    def name(self):
+        ...
+
     @name.setter
     def name(self,name):
         # this pattern matches 3 arabic words with a single space inbetween
