@@ -2,5 +2,9 @@
 flask_session/2029240f6d1128be89ddc32729463129
 
 .vscode/settings.json
+<<<<<<< HEAD
+=======
+test/__pycache__/test_classes.cpython-38-pytest-7.1.2.pyc
+>>>>>>> b22e9f52af904c96fe5c73f1e89d6a5606cbde39
 helpers/__pycache__/myFuncs.cpython-38.pyc
 helpers/__pycache__/student.cpython-38.pyc
