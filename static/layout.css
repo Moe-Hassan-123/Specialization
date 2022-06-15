@@ -44,3 +44,8 @@ h1 {
     margin-bottom: 25%;
     width: auto;
 }
+/** Error Page **/
+#img {
+    align-items: center;
+    margin: auto;
+}
