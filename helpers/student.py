@@ -7,6 +7,8 @@ class Student:
     A class that stores students in a database and allow mutiple function on them.
     """
 
+    db = sqlite3.connect("students.db")
+
     def __init__(
         self,
         first: str,
@@ -36,6 +38,17 @@ class Student:
         self._id = self.cur.lastrowid
         print(self.cur.lastrowid)
         self.db.commit()
+        specialization: str,
+    ):
+        """
+        It Creates the student in the database and stores his hashed national_id for other functions
+        """
+        Student.db.execute(
+            "INSERT INTO students(name,password,national_id,specialization) Values(?,?,?,?)",
+            (f"{first} {last}", password, national_id, specialization),
+        )
+        Student.db.commit()
+        self._id = national_id
 
     @property
     def password(self):
@@ -62,6 +75,14 @@ def test_student():
         "specialization" : "scientific",
     }
     student = Student(**values)
+    values = [
+        "mohamed",
+        "hassan",
+        generate_password_hash("hi"),
+        generate_password_hash("hello"),
+        "scientific",
+    ]
+    student = Student(*values)
     return
 
 
