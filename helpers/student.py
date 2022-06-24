@@ -59,6 +59,10 @@ class Student:
             is None
         ):
             raise ValueError("الرقم القومي غير صحيح")
+        national_ids = Student.c.execute("SELECT national_id FROM students").fetchall()
+        for n in national_ids:
+            if check_password_hash(n[0],national_id) == True:
+                raise ValueError("الطالب مسجل بالفعل")
         self._national_id = national_id
 
     @property
@@ -106,13 +110,6 @@ class Student:
 
     def add(self):
         Student.c.execute(
-            "SELECT national_id FROM students WHERE name = ? AND grade = ? AND specialization = ?",
-            [self.name, self.grade, self.specialization],
-        )
-        for national_id in self.c.fetchall():
-            if check_password_hash(self.national_id, national_id) == False:
-                raise ValueError("الطالب مسجل بالفعل")
-        Student.c.execute(
             """INSERT INTO students  (name,
                                       password,
                                       national_id,
@@ -146,10 +143,11 @@ class Student:
             return user["id"]
         return False
     
-    def delete_student(data: dict):
+    def delete(data: dict):
         if (id := Student.isexist(**data)) is False:
             return "الطالب لا يوجد في قاعدة البيانات"
-        Student.c.execute("DELETE FROM students WHERE id = ?",id)
+        print(type(id))
+        Student.c.execute("DELETE FROM students WHERE id = ?",(id, ))
         Student.db.commit()
         return "تم حذف بيانات الطالب بنجاح"
         

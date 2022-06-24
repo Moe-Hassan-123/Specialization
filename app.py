@@ -18,11 +18,12 @@ def index():
     if request.method == "GET":
         return render_template("index.html")
     args = request.form
+    student = Student(**args)
     try:
-        student = Student(**args)
-    except (TypeError, ValueError) as er:
-        return give_output(str(er))
-    return give_output(student.add())
+        output = student.add()
+    except AttributeError:
+        return give_output("الطالب مسجل من قبل لذا لم يتم تسجيله")
+    return give_output(output)
 
 @app.route("/help", methods=["GET"])
 def help() -> None:
@@ -49,7 +50,7 @@ def delete() -> None:
         "national_id": request.form.get("national_id"),
     }
     # Students.delete returns an output message that shows whethere it was completed succesfully or not.
-    return give_output(Student.delete(**data))
+    return give_output(Student.delete(data))
 
 
 app.run(debug=True)

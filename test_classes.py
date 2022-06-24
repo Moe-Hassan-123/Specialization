@@ -60,13 +60,6 @@ def test_set_wrong_type():
         student.password = 1234567
     with raises(TypeError):
         student.national_id = 1234567
-
-### Tests for working_testbase manipulation
-
-def test_repeated_add():
-    student.add()
-    with raises(ValueError):
-        student.add()
         
 def test_isexist_wrong_user():
     assert Student.isexist("mohamed","123","12345") == False
@@ -74,4 +67,3 @@ def test_isexist_wrong_user():
 def test_isexist_right_user():
     Student("يوسف حسن محمد", "Password123#4","2124230552955",11,"scientific").add()
     assert Student.isexist("يوسف حسن محمد", "2124230552955", "Password123#4") != False
-    
