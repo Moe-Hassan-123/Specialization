@@ -1,5 +1,6 @@
 import sqlite3
 from re import fullmatch
+from helpers.myFuncs import fetch_as_dict
 from werkzeug.security import check_password_hash, generate_password_hash
 
 
@@ -7,7 +8,9 @@ class Student:
     """
     A class that stores students in a database and allow mutiple function on them.
     """
-
+    db = sqlite3.connect("students.db")
+    c = db.cursor()
+    
     def __init__(
         self,
         name: str,
@@ -24,8 +27,7 @@ class Student:
         self.national_id = national_id
         self.grade = grade
         self.specialization = specialization
-        self.db = sqlite3.connect("students.db")
-        self.c = self.db.cursor()
+
 
     @property
     def password(self):
@@ -41,7 +43,7 @@ class Student:
         )
         if fullmatch(pattern, password) is None:
             raise ValueError("Weak Password")
-        self._password = generate_password_hash(password)
+        self._password = password
 
     @property
     def national_id(self):
@@ -105,14 +107,14 @@ class Student:
         self._specialization = specialization
 
     def add(self):
-        self.c.execute(
+        Student.c.execute(
             "SELECT national_id FROM students WHERE name = ? AND grade = ? AND specialization = ?",
             [self.name, self.grade, self.specialization],
         )
         for national_id in self.c.fetchall():
             if check_password_hash(self.national_id, national_id) == False:
                 raise ValueError("National Id already registered")
-        self.c.execute(
+        Student.c.execute(
             """INSERT INTO students  (name,
                                       password,
                                       national_id,
@@ -121,10 +123,24 @@ class Student:
                                       Values(?,?,?,?,?)""",
             [
                 self.name,
-                self.password,
+                generate_password_hash(self.password),
                 generate_password_hash(self.national_id),
                 self.grade,
                 self.specialization,
             ],
         )
-        self.db.commit
+        Student.db.commit
+        
+    def isexist(name: str, national_id: str, password: str) -> bool:
+        users = fetch_as_dict(Student.c,"SELECT id,name,password,national_id FROM students")
+        for user in users:
+            print(user)
+            print(user["password"])
+            if check_password_hash(user["password"],password) == False:
+                continue
+            if check_password_hash(user["national_id"],national_id) == False:
+                continue
+            if not user["name"] == name:
+                continue
+            return True
+        return False  

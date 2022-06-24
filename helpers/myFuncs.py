@@ -1,3 +1,4 @@
+from sqlite3 import Cursor
 from flask import redirect, render_template, request, session
 from sqlite3 import Cursor
 # FROM CS50x Finance problem set
@@ -35,3 +36,15 @@ def login_required(f):
             return redirect("/login")
         return f(*args, **kwargs)
     return decorated_function
+
+
+# FROM https://www.codegrepper.com/code-examples/python/python+cursor+fetchall+to+dictionary
+def fetch_as_dict(cursor: Cursor,cursorQuery: str) -> dict:
+    cursor.execute(cursorQuery)
+    records = cursor.fetchall()
+    insertObject = []
+    columnNames = [column[0] for column in cursor.description]
+
+    for record in records:
+        insertObject.append( dict( zip( columnNames , record ) ) )
+    return insertObject
