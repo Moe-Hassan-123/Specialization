@@ -1,6 +1,7 @@
 from sqlite3 import Cursor
 from flask import redirect, render_template, request, session
 from sqlite3 import Cursor
+from functools import wraps
 
 # FROM CS50x Finance problem set
 def give_error(message: str, code: int = 400):
