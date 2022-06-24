@@ -36,13 +36,13 @@ class Student:
     @password.setter
     def password(self, password: str):
         if type(password) is not str:
-            raise (TypeError)
+            return (TypeError)
         # got this pattern from RockOnGom's comment on stackoverflow https://stackoverflow.com/a/5142164
         pattern = (
             r"(?=.*([A-Z]){1,})(?=.*[0-9]{1,})(?=.*[a-z]{1,}).{8,100}"
         )
         if fullmatch(pattern, password) is None:
-            raise ValueError("الباسورد ضعيف للغاية")
+            return ValueError("الباسورد ضعيف للغاية")
         self._password = password
 
     @property
@@ -53,16 +53,16 @@ class Student:
     def national_id(self, national_id: str):
         # check if it follows the format
         if type(national_id) is not str:
-            raise (TypeError)
+            return (TypeError)
         if (
             fullmatch(r"(2|3)\d{4}([1-9]|[12][0-9]|3[01])\d{6}[1-9]", national_id)
             is None
         ):
-            raise ValueError("الرقم القومي غير صحيح")
+            return ValueError("الرقم القومي غير صحيح")
         national_ids = Student.c.execute("SELECT national_id FROM students").fetchall()
         for n in national_ids:
             if check_password_hash(n[0],national_id) == True:
-                raise ValueError("الطالب مسجل بالفعل")
+                return ValueError("الطالب مسجل بالفعل")
         self._national_id = national_id
 
     @property
@@ -72,11 +72,11 @@ class Student:
     @name.setter
     def name(self, name: str):
         if type(name) is not str:
-            raise (TypeError)
+            return (TypeError)
         # this pattern matches 3 arabic words with a single space inbetween
         pattern = r"(?:[\u0621-\u064A]+ ){2}[\u0621-\u064A]+"
         if fullmatch(pattern, name) is None:
-            raise ValueError("اسم الطالب غير صحيح")
+            return ValueError("اسم الطالب غير صحيح")
         self._name = name
 
     @property
@@ -88,9 +88,9 @@ class Student:
         try:
             grade = int(grade)
         except TypeError:
-            raise TypeError("العام الدراسي يجب ان يكون عددا موجبا")
+            return TypeError("العام الدراسي يجب ان يكون عددا موجبا")
         if grade not in [11, 12]:
-            raise ValueError("العام الدراسي يجب ان يكون 11 او 12")
+            return ValueError("العام الدراسي يجب ان يكون 11 او 12")
         self._grade = grade
 
     @property
@@ -105,7 +105,7 @@ class Student:
             "math_oriented",
             "science_oriented",
         ]:
-            raise ValueError("التخصص خطأ")
+            return ValueError("التخصص خطأ")
         self._specialization = specialization
 
     def add(self):

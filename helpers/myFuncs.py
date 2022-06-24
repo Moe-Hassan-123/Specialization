@@ -1,7 +1,7 @@
 from sqlite3 import Cursor
 from flask import render_template
 
-def give_output(message: str = "تم بنجاح!") -> None:
+def give_output(message: str = "Unkown error occured \n Please Contact us for help\n Email: Mdhn6832@gmail.com") -> None:
     return render_template("output.html", message=message)
 
 # FROM https://www.codegrepper.com/code-examples/python/python+cursor+fetchall+to+dictionary
