@@ -13,5 +13,9 @@ document.addEventListener("DOMContentLoaded",function() {
         {
             special.innerHTML = '<option selected>اختر التخصص</option><option value="second">علم رياضة</option><option value="third">علم علوم</option><option value="third">ادبي</option>' 
         }
+        else
+        {
+            special.innerHTML = '<option selected disabled>اختر السنة الدراسية اولا</option>'
+        }
     })
 })
