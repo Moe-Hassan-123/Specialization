@@ -5,13 +5,13 @@ document.addEventListener("DOMContentLoaded",function() {
     grade.addEventListener("change",function(){
         grade_value = grade.options[grade.selectedIndex].value
         special = document.getElementById("specializations")
-        if (grade_value == "second")
+        if (grade_value == "11")
         {
-            special.innerHTML = '<option selected>اختر التخصص</option><option value="second">علمي</option><option value="third">ادبي</option>'
+            special.innerHTML = '<option selected>اختر التخصص</option><option value="scientific">علمي</option><option value="literature">ادبي</option>'
         }
-        else if (grade_value == "third")
+        else if (grade_value == "12")
         {
-            special.innerHTML = '<option selected>اختر التخصص</option><option value="second">علم رياضة</option><option value="third">علم علوم</option><option value="third">ادبي</option>' 
+            special.innerHTML = '<option selected>اختر التخصص</option><option value="math_oriented">علم رياضة</option><option value="science_oriented">علم علوم</option><option value="literature">ادبي</option>' 
         }
         else
         {
