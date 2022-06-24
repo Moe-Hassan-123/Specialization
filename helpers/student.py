@@ -1,6 +1,6 @@
 import sqlite3
 from re import fullmatch
-from helpers.myFuncs import fetch_as_dict
+from helpers.myFunctions import fetch_as_dict
 from werkzeug.security import check_password_hash, generate_password_hash
 
 

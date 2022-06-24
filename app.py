@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from helpers.myFuncs import give_output
+from helpers.myFunctions import give_output
 from helpers.student import Student
 
 app = Flask(__name__)
