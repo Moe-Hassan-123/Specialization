@@ -65,10 +65,16 @@ h1 {
 .custom-select {
     width: 100%;
 }
+.btn_container {
+    display: flex;
+    margin-top: 10px;
+    margin-right: auto;
+}
 
 .select_container {
     background: black;
 }
+
 .btn {
-    margin: 20px;
+    margin: auto;
 }
