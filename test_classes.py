@@ -73,5 +73,5 @@ def test_isexist_wrong_user():
         
 def test_isexist_right_user():
     Student("يوسف حسن محمد", "Password123#4","2124230552955",11,"scientific").add()
-    assert Student.isexist("يوسف حسن محمد", "2124230552955", "Password123#4") == True
+    assert Student.isexist("يوسف حسن محمد", "2124230552955", "Password123#4") != False
     

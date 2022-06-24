@@ -142,5 +142,11 @@ class Student:
                 continue
             if not user["name"] == name:
                 continue
-            return True
+            return user["id"]
         return False
+    
+    def delete_student(data: dict):
+        if (id := Student.isexist(**data)) is False:
+            return "الطالب لا يوجد في قاعدة البيانات"
+        Student.c.execute("DELETE FROM students WHERE id = ?",id)
+        return "تم حذف بيانات الطالب بنجاح"
