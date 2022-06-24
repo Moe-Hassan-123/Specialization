@@ -3,7 +3,7 @@ html, body {
     overflow: hidden;
     width: 100%;
     height: 100%;
-    font-family:'Droid Arabic Naskh', serif;
+    font-family: 'Lateef', serif;
 }
 label {
     font-size: x-large;
@@ -61,4 +61,14 @@ h1 {
 #nav {
     border-bottom: 3px solid  black;
     margin-bottom: 25px;
+}
+.custom-select {
+    width: 100%;
+}
+
+.select_container {
+    background: black;
+}
+.btn {
+    margin: 20px;
 }
