@@ -7,7 +7,7 @@
 
     <div id="form">
         <h3>ادخل بياناتك</h3>
-        <form action="/register" method="post">
+        <form action="/" method="post">
             <div class="mb-3">
                 <label for="name" class="form-label">الاسم الثلاثي</label>
                 <input type="text" class="form-control" name="name">
@@ -17,7 +17,7 @@
                 <input type="text" class="form-control" name="national_id">
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">باسورد</label>
+                <label for="password" class="form-label">الباسورد</label>
                 <input type="password" class="form-control" name="password">
             </div>
             <div class="mb-3">
@@ -26,20 +26,20 @@
             <div class="select_container">
                 <select class="custom-select" name="grade" id="grade">
                     <option selected>اختر السنة الدراسية</option>
-                    <option value="second">الصف الثاني الثانوي</option>
-                    <option value="third">الصف الثالث الثانوي</option>
+                    <option value="11">الصف الثاني الثانوي</option>
+                    <option value="12">الصف الثالث الثانوي</option>
                   </select>
             </div>
             <div class="mb-3">
                 <label for="grade" class="form-label">التخصص</label>
             </div>
             <div class="select_container">
-                <select class="custom-select" name="specializations" id="specializations">
+                <select class="custom-select" name="specialization" id="specializations">
                     <option selected>اختر السنة الدراسية اولا</option>
                   </select>
             </div class="select_container">
             <div class="btn_container">
-                <button type="submit" class="btn">Submit</button>
+                <button type="submit" class="btn">سجل بياناتك</button>
             </div>
         </form>
     </div>

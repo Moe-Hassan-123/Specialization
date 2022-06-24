@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from flask_session import Session
-from helpers.myFuncs import give_output, give_success
+from helpers.myFuncs import give_output
 from helpers.student import Student
 
 app = Flask(__name__)
@@ -12,7 +12,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 
-@app.route("/")
+@app.route("/", methods=["GET","POST"])
 def index():
     """Outputs the homepage and saves user's data in The database"""
     if request.method == "GET":
@@ -22,8 +22,7 @@ def index():
         student = Student(**args)
     except (TypeError, ValueError) as er:
         return give_output(str(er))
-    student.add()
-    return render_template("index.html")
+    return give_output(student.add())
 
 @app.route("/help", methods=["GET"])
 def help() -> None:
