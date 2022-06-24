@@ -14,28 +14,29 @@ Session(app)
 
 @app.route("/")
 def index():
-    """Index Function renders The homepage of The website"""
-    return render_template("index.html")
-
-
-@app.route("/register", methods=["GET", "POST"])
-def register():
-    """Register Function That saves user's data in The database"""
+    """Outputs the homepage and saves user's data in The database"""
     if request.method == "GET":
-        return render_template("register.html")
+        return render_template("index.html")
     args = request.form
     try:
         student = Student(**args)
     except (TypeError, ValueError) as er:
         return give_error(str(er))
     student.add()
-    return render_template("register.html")
+    return render_template("index.html")
 
-@app.route("/specialize", methods=["GET", "POST"])
+
+@app.route("/edit", methods=["GET", "POST"])
 @login_required
-def change_specialization():
-    """ allows students to edit their learning prefrences on which subjects they wish to study"""
-    ...
+def edit_specialization():
+    """ allows students to edit their data"""
+    data = {
+        "name": request.form.get("name"),
+        "password" : request.form.get("password"),
+        "national_id": request.form.get("national_id")
+    }
+    if Student.isexist(data) is False:
+        give_error("الطالب لا يوجد في قاعدة البيانات")
 
 
 app.run(debug=True)
