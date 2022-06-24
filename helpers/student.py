@@ -8,9 +8,10 @@ class Student:
     """
     A class that stores students in a database and allow mutiple function on them.
     """
+
     db = sqlite3.connect("students.db")
     c = db.cursor()
-    
+
     def __init__(
         self,
         name: str,
@@ -27,7 +28,6 @@ class Student:
         self.national_id = national_id
         self.grade = grade
         self.specialization = specialization
-
 
     @property
     def password(self):
@@ -72,9 +72,7 @@ class Student:
         # this pattern matches 3 arabic words with a single space inbetween
         pattern = r"(?:[\u0621-\u064A]+ ){2}[\u0621-\u064A]+"
         if fullmatch(pattern, name) is None:
-            raise ValueError(
-                "Should Provide a Full Name in Arabic"
-            )
+            raise ValueError("Should Provide a Full Name in Arabic")
         self._name = name
 
     @property
@@ -84,7 +82,7 @@ class Student:
     @grade.setter
     def grade(self, grade: int):
         try:
-           grade =  int(grade)
+            grade = int(grade)
         except TypeError:
             raise TypeError("Grade must be int")
         if grade not in [11, 12]:
@@ -130,17 +128,19 @@ class Student:
             ],
         )
         Student.db.commit
-        
+
     def isexist(name: str, national_id: str, password: str) -> bool:
-        users = fetch_as_dict(Student.c,"SELECT id,name,password,national_id FROM students")
+        users = fetch_as_dict(
+            Student.c, "SELECT id,name,password,national_id FROM students"
+        )
         for user in users:
             print(user)
             print(user["password"])
-            if check_password_hash(user["password"],password) == False:
+            if check_password_hash(user["password"], password) == False:
                 continue
-            if check_password_hash(user["national_id"],national_id) == False:
+            if check_password_hash(user["national_id"], national_id) == False:
                 continue
             if not user["name"] == name:
                 continue
             return True
-        return False  
+        return False
