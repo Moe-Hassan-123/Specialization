@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 
-{% block link %} <link href="static/index.css" rel="stylesheet"> {% endblock %}
-
+{% block link %} <script type="text/javascript" src="static/choices.js"></script>{% endblock %}
 {% block title %} التسجيل {% endblock %}
 
 {% block main %}
@@ -16,7 +15,6 @@
             <div class="mb-3">
                 <label for="national_id" class="form-label">الرقم القومي</label>
                 <input type="text" class="form-control" name="national_id">
-                <div id="emailHelp" class="form-text">We'll never share your national_id with anyone else.</div>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">باسورد</label>
@@ -25,15 +23,20 @@
             <!-- perhaps a droplist is better -->
             <div class="mb-3">
                 <label for="grade" class="form-label">السنة الدراسية</label>
-                <input type="number" pattern="1(1|2)" title="11 or 12" class="form-control" name="grade">
+                <select class="custom-select" name="grade" id="grade">
+                    <option selected>اختر السنة الدراسية</option>
+                    <option value="second">الصف الثاني الثانوي</option>
+                    <option value="third">الصف الثالث الثانوي</option>
+                  </select>
             </div>
             <div class="mb-3">
-                <label for="specialization" class="form-label">التخصص</label>
-                <input type="text" class="form-control" name="specialization">
-            </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="agree_on_terms">
-                <label class="form-check-label" for="agree_on_terms">Check me out</label>
+                <label for="grade" class="form-label">التخصص</label>
+                <select class="custom-select" name="specializations" id="specializations">
+                    <option selected>اختر التخصص</option>
+                    <option value="second">علم رياضة</option>
+                    <option value="third">علم علوم</option>
+                    <option value="third">ادبي</option>
+                  </select>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
