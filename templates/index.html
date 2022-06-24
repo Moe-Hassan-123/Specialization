@@ -23,6 +23,8 @@
             <!-- perhaps a droplist is better -->
             <div class="mb-3">
                 <label for="grade" class="form-label">السنة الدراسية</label>
+            </div>
+            <div class="select_container">
                 <select class="custom-select" name="grade" id="grade">
                     <option selected>اختر السنة الدراسية</option>
                     <option value="second">الصف الثاني الثانوي</option>
@@ -31,14 +33,15 @@
             </div>
             <div class="mb-3">
                 <label for="grade" class="form-label">التخصص</label>
-                <select class="custom-select" name="specializations" id="specializations">
-                    <option selected>اختر التخصص</option>
-                    <option value="second">علم رياضة</option>
-                    <option value="third">علم علوم</option>
-                    <option value="third">ادبي</option>
-                  </select>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="select_container">
+                <select class="custom-select" name="specializations" id="specializations">
+                    <option selected>اختر السنة الدراسية اولا</option>
+                  </select>
+            </div class="select_container">
+            <div class="btn_container">
+                <button type="submit" class="btn">Submit</button>
+            </div>
         </form>
     </div>
 

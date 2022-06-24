@@ -1,7 +1,6 @@
 from sqlite3 import Cursor
 from flask import redirect, render_template, request, session
-from functools import wraps
-
+from sqlite3 import Cursor
 # FROM CS50x Finance problem set
 def give_error(message: str, code: int = 400):
     """Render message as an apology to user."""
@@ -25,6 +24,10 @@ def give_error(message: str, code: int = 400):
         return s
 
     return render_template("error.html", top=code, bottom=escape(message))
+
+def give_success(message: str = "تم بنجاح!") -> None:
+    return render_template("success.html",message=message)
+
 
 def login_required(f):
     @wraps(f)
