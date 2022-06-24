@@ -1,16 +1,8 @@
 from flask import Flask, render_template, request
-from flask_session import Session
 from helpers.myFuncs import give_output
 from helpers.student import Student
 
 app = Flask(__name__)
-
-
-# configuring Sessions
-app.config["SESSION_PERMANENT"] = False
-app.config["SESSION_TYPE"] = "filesystem"
-Session(app)
-
 
 @app.route("/", methods=["GET","POST"])
 def index():
