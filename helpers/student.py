@@ -145,7 +145,7 @@ class Student:
     
     def delete(data: dict):
         if (id := Student.isexist(**data)) is False:
-            return "الطالب لا يوجد في قاعدة البيانات"
+            return "البيانات المدخلة خاطئة ولا توجد في قاعدة البيانات"
         print(type(id))
         Student.c.execute("DELETE FROM students WHERE id = ?",(id, ))
         Student.db.commit()
