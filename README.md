@@ -5,12 +5,13 @@
 Technologies used:
 
 <div style="display:flex;gap:200px">
-    <img src="images/HTML" alt="HTML" width="100"/>
-    <img src="images/CSS" alt="CSS" width="100"/>
-    <img src="images/JavaScript" alt="JavaScript" width="100"/>
-    <img src="images/Python3" alt="Python 3" width="100"/>
-    <img src="images/Sqlite3" alt="Sqlite 3" width="100"/>
-    <img src="images/Flask" alt="Flask" width="100"/>
+    <img src="images/HTML.png" alt="HTML"  height="50"/>
+    <img src="images/CSS.png" alt="CSS" height="50"/>
+    <img src="images/JavaScript.png" alt="JavaScript" height="50"/>
+    <img src="images/Python.png" alt="Python 3" height="50"/>
+    <img src="images/Sqlite3.png" alt="Sqlite 3" height="50"/>
+    <img src="images/Flask.png" alt="Flask" height="50"/>
+    <img src="images/Git.png" alt="Git" height="50"/>
 </div>
 
 
