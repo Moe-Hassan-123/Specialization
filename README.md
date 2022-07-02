@@ -9,7 +9,7 @@ Technologies used:
     <img src="images/CSS.png" alt="CSS" height="50"/>
     <img src="images/JavaScript.jpeg" alt="JavaScript" height="50"/>
     <img src="images/Python.png" alt="Python 3" height="50"/>
-    <img src="images/Sqlite3.png" alt="Sqlite 3" height="50"/>
+    <img src="images/Sqlite3.jpg" alt="Sqlite 3" height="50"/>
     <img src="images/Flask.png" alt="Flask" height="50"/>
     <img src="images/Git.png" alt="Git" height="50"/>
 </div>
