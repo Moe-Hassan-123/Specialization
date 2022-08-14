@@ -1,0 +1,21 @@
+.accordion {
+    width: 80%;
+}
+
+
+
+/* The Button While not Collapsed */
+.accordion-button:not(.collapsed) {
+    color: black;
+    background-color: #f2d373;
+}
+/* The Button While being collapsed */
+.accordion-button:not(.collapsed)::after
+{
+    background-image: var(--bs-accordion-btn-icon);;
+}
+/* General Accordion button */
+.accordion-button::after {
+    margin-left: 0;
+    margin-right: auto;
+}

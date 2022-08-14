@@ -1,0 +1,16 @@
+section {
+  height:100vh;
+}
+* {
+  margin:0;
+}
+.row {
+  width: 100%;
+}
+
+
+.navigation {
+  position: fixed;
+  right: 10px;
+  top: 25%;
+}
