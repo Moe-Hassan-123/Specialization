@@ -1,11 +1,48 @@
 {% extends "layout.html" %}
 
-{% block link %} <link href="static/index.css" rel="stylesheet"> {% endblock %}
+{% block link %} <link href="static/css/help.css" rel="stylesheet"> {% endblock %}
 
-{% block title %} المساعدة {% endblock %}
+{% block title %} مساعدة {% endblock %}
 
 {% block main %}
 
-    <h1>Ministry Of Education</h1>
+<div class="accordion" id="questions">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+          لا تستطيع التسجيل؟
+        </button>
+      </h2>
+      <div id="q1" class="accordion-collapse collapse" data-bs-parent="#questions">
+        <div class="accordion-body">
+            لكي تسجل التخصص يجب اولا ان تتوجه الي صفحة <a href="/register">تسجيل البيانات</a> ثم تكتب بياناتك وتضغط علي زرار تسجيل البيانات.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+          لماذا يوجد باسورد؟
+        </button>
+      </h2>
+      <div id="q2" class="accordion-collapse collapse" data-bs-parent="#questions">
+        <div class="accordion-body">
+          يستخدم الباسورد في حالة رغبتك في تغيير بياناتك حيث تستطيع ان تعدل بياناتك في اي وقت باستخدام الرقم القومي و الباسورد.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
+          اسئلة اخري؟
+        </button>
+      </h2>
+      <div id="q3" class="accordion-collapse collapse" data-bs-parent="#questions">
+        <div class="accordion-body">
+          تستطيع ان ترسل اي أسئلة الي mdhn6832@gmail.com
+        </div>
+      </div>
+    </div>
+  </div>
 
 {% endblock%}
