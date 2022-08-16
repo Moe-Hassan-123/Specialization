@@ -1,0 +1,95 @@
+main {
+    align-items: revert;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 3%;
+}
+p {
+    font-size: 30px;
+}
+#vals > p {
+    text-align: center;
+}
+span {
+    column-width: 100px;
+}
+#data-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    direction: rtl;
+    padding: 4%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    /* BACKGROUD ->> blanchedalmond, burly wood, cadetblue, cornsilk */
+    /* Floralwhite, forestgreen ivory, gainsboro?*/
+    /* seashell tan wheat */
+}
+
+.d-grid{
+    margin-top: 25px;
+    gap: 300px;
+    display: flex !important;
+    flex-direction: row;
+}
+
+.col-5 {
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.modal-body p {
+    font-size: large;
+}
+/* .close, .navlink {
+    font-size: smaller;
+} */
+.close, .navlink:hover {
+    border-bottom: none !important;
+}
+@media only screen and (max-width: 1000px) {
+.d-grid {
+    gap: 150px;
+}
+.btn {
+    font-size: small;
+}
+p {
+    font-size: 25px;
+}
+#data-container{
+    padding: 2%;
+}
+}
+
+@media only screen and (max-width: 770px) {
+.d-grid {
+    flex-direction: column-reverse;
+    gap: 50px;
+}
+.btn {
+    font-size: smaller;
+}
+h1{
+    font-size: 30px !important;
+}
+p {
+    font-size: 18px;
+}
+.col-5 {
+    gap: 40px;
+    display: flex;
+    flex-direction: column;
+}
+}
+@media only screen and (max-width: 500px) {
+h1{
+    font-size: 18px;
+}
+p {
+    font-size: 14px;
+}
+}

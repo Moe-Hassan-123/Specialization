@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block link %}
+<script type="module" src="static/javascript/register.js"></script>
+{% endblock %}
+{% block title %} تسجيل الطالب {% endblock %}
+
+{% block main %}
+
+<div id="form">
+    <h3>ادخل بياناتك</h3>
+    <form action="/register" method="post" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="name" class="form-label">الاسم الثلاثي</label>
+            <input id="name" type="text" class="form-control" name="name" placeholder="مثال: محمد حسن محمد" required
+                pattern=" *[\u0621-\u064A\u0660-\u0669]+ +[\u0621-\u064A\u0660-\u0669]+ +[\u0621-\u064A\u0660-\u0669]+ *">
+            <div class="valid-feedback">صحيح!</div>
+            <div class="invalid-feedback">أكتب الاسم ثلاثي باللغة العربية كما هو مكتوب علي البطاقة.</div>
+            <!-- The Regex Pattern Below Matches 3 Arabic Words Seperated by one or more spaces -->
+        </div>
+        <div class="mb-3">
+            <label for="national_id" class="form-label">الرقم القومي</label>
+            <input id="national_id" type="text" class="form-control" name="national_id" required
+                pattern="^(?:2|3)\d{2}(?:0[1-9]|1[012])(?:0[1-9]|[12][0-9]|3[01])\d{7}$"
+                placeholder="أدخل الرقم القومي">
+            <div class="valid-feedback">صحيح!</div>
+            <div class="invalid-feedback">أكتب الرقم القومي الصحيح.</div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">كلمة المرور</label>
+            <input id="password" type="password" class="form-control" name="password" required
+                placeholder="أدخل الباسورد" pattern="(?=.*[0-9])(?=.*[(a-z)(\u0621-\u064A)(\u0660-\u0669)]).{8,32}">
+            <div class="valid-feedback">صحيح!</div>
+            <div class="invalid-feedback">كلمة المرور يجب ان تكون 8 احرف علي الاقل ويجب ان تحتوي علي رقم واحد علي الاقل.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="grade" class="form-label">السنة الدراسية</label>
+            <select id="grade" class="custom-select select_container" name="grade" required>
+                <option value="" selected disabled hidden>اختر السنة الدراسية</option>
+                <option value="1">الصف الثاني الثانوي</option>
+                <option value="2">الصف الثالث الثانوي</option>
+            </select>
+            <div class="valid-feedback">صحيح!</div>
+            <div class="invalid-feedback">يجب اختيار السنة الدراسية.</div>
+        </div>
+        <div class="mb-3">
+            <label for="specialization" class="form-label">التخصص</label>
+            <select id="specialization" class="custom-select select_container" name="specialization" required>
+                <option value="" selected disabled hidden>اختر السنة الدراسية اولا</option>
+            </select>
+            <div class="valid-feedback">صحيح!</div>
+            <div class="invalid-feedback">يجب اختيار التخصص.</div>
+        </div>
+        <div class="btn_container">
+            <button type="submit" class="btn">سجل بياناتك</button>
+        </div>
+    </form>
+</div>
+
+
+
+{% endblock%}

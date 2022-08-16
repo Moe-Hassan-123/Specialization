@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block title %} الصفحة الرئيسية {% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="static/css/index.css"> {% endblock %}
+{% block main %}
+
+<section id="idea">
+    <div class="container">
+        <div class="cont">
+            <div class="img-cont">
+                <img src="static/images/index/digialized-Egypt.jpg" alt="صورة للوجو مصر الرقمية" class="figure-img img rounded">
+                <p class="figure-caption">حملة مصر الرقمية التي تشجع طلاب المدارس والجامعات علي البرمجة</p>
+            </div>
+            <div class="txt-cont">
+                <h1 class="head">فكرة المشروع</h1>
+                <p class="txt">
+                    في اطار التطويرات التكنولوجية في مصر, اصبح من الواضح انه حان الوقت لتغيير عملية تسجيل التخصصات في المرحلة الثانوية حيث ان حاليا العملية لا تعمل بكفائة حيث تعتمد بشكل كبير علي العامل البشري في تسجيل بيانات كل طالب مما يأخذ الكثير من المجهود و قد يؤدي الي اخطاء.
+                </p>
+                <p class="txt">
+                    لذا قررت ان اطور هذا الموقع كأداه تسمح للطلاب من الصفي الثاني والثالث الثانوي ان يسجلوا تخصصهم بدون اي تدخل بشري.                    
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="goals">
+    <div class="container">
+        <div class="img-cont">
+            <img src="static/images/index/tablet.jpg" alt="Ministry of Education's Tablet" class="figure-img img rounded">
+            <p class="figure-caption">التابلت من اكبر المجهودات الوزارة في جعل التعليم الثانوي الكتروني</p>
+        </div>
+        <div class="txt-cont">
+            <h1 class="head">اهداف المشروع</h1>
+            <p class="txt">اهم اهداف الموقع هي المساهمة في جعل التعليم الثانوي في مصر رقمي حيث يتماشي مع مجهودات الوزارة للارتقاء بالمنظومة التعليمية في مصر.</p>
+            <p class="txt">يسعي الموقع الي جعل تسجيل التخصصات عملية سلسلة لا تتطلب مجهودات بشرية حيث يسجل البرنامج تلقائيا رغبات كل طالب ويتيح تعديل البيانات.</p>
+            <p class="txt"></p>
+            <!-- <p class="txt">عندما يدخل الطالب بياناته يقوم الموقع بتسجيله في قاعدة البيانات و عرض بيانات الطالب في صفحة مخصصة, من هذه الصفحة يستطيع الطالب ان يعدل بياناته او يتأكد من صحتها.</p> -->
+        </div>
+    </div>
+</section>
+
+<section id="tech">
+    <div class="container">
+        <div class="img-cont">
+            <img src="static/images/index/langs.png" alt="Programming Languages" class="figure-img img rounded">
+            <p class="figure-caption">بعض لغات البرمجة المستخدمة في الموقع</p>
+        </div>
+        <div class="txt-cont">
+            <h1 class="head">لغات البرمجة المستخدمة</h1>
+            <p class="txt">يستخدم المشروع العديد من لغات البرمجة الذين يقومون بمهام مختلفة ومقسمون بشكل اساسي الي نوعين.</p>
+            <p class="txt"> النوع الاول هو اللغات المستخدمة لتطوير واجهة المستخدم: <em>HTML</em>, <em>CSS</em>, <em>Javascript</em>.</p>
+            <p class="txt">النوع الثاني هو اللغات المستخدمة في التعامل مع قاعدة البيانات وضمان صحة المعلومات القادمة من المستخدم ومن هذه اللغات: <em>Python</em>, <em>Flask</em>, <em>Sqlite3</em>, <em>Regular Expressions</em>.</p>
+        </div>
+    </div>
+</section>
+
+<section id="howtouse">
+    <div class="container">
+        <div class="img-cont">
+            <img src="static/images/index/howto.jpg" alt="howto" class="figure-img img rounded">
+            <p class="figure-caption"></p>
+        </div>
+        <div class="txt-cont">
+            <h1 class="head">كيفية استخدام الموقع؟</h1>
+            <p class="txt">لقد تم تطوير الموقع علي اساس سهولة التعامل وراحة المستخدم لذا ستكون عملية التسجيل سهلة للغاية.</p>
+            <p class="txt">لتسجيل التخصص يجب اولا ان تتجه الي صفحة <a href="/register">تسجيل البيانات</a> ثم اكتب بياناتك واضغط علي زرار تسجيل البيانات.</p>
+            <p class="txt">بعد ان تضغط علي الزرار سيتم تسجيل بياناتك في قاعدة البيانات وتحويلك الي صفحة خاصة بك فيها كل بياناتك ومن هناك تستطيع ان تعدل البيانات اذا اردت.</p>
+            <p class="txt">اذا اردت ان تعدل بياناتك في وقت لاحق يجب اولا ان تتجه الي صفحة <a href="/login">تعديل البيانات</a> ومن ثم اكتب الرقم القومي والباسورد الذي استخدمته في التسجيل واضغط علي زرار تسجيل الدخول.</p>
+            <p class="txt">بعد الضغط علي الزرار سوف يتم تحويلك الي صفحة مخصصة لك فيها بياناتك كاملة ومن هناك تستطيع تعديل بياناتك.</p>
+
+        </div>
+    </div>
+</section>
+{% endblock%}

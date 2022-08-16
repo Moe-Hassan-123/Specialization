@@ -1,0 +1,206 @@
+html,
+body {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+label {
+    font-size: x-large;
+}
+
+main,
+header {
+    background-color: white;
+}
+
+header {
+    flex: 0 1 auto;
+}
+
+main {
+    min-height: 100vh;
+    height: auto;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/** Navigation Bar **/
+#logo {
+    max-width: 86px;
+    height: auto;
+}
+
+header .nav-link {
+    color: black;
+    background-color: transparent;
+    border: none;
+    border-bottom: #C09200;
+    font-weight: bold;
+    font-size: x-large !important;
+    margin-left: 20px;
+    margin-right: 20px;
+    --bs-link-color: #C09200;
+    --bs-link-hover-color: #C09200;
+}
+
+.nav-link:hover {
+    color: #C09200;
+    border-bottom: 3px solid #C09200;
+}
+
+
+/** Forms **/
+#form {
+    display: flex;
+    direction: rtl;
+    flex-direction: column;
+    padding: 30px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    margin-top: 3%;
+    margin-bottom: 0;
+    width: 25rem;
+}
+
+#nav {
+    border-bottom: 3px solid #c69a16;
+}
+
+.btn_container {
+    display: flex;
+    margin-top: 30px;
+    margin-right: auto;
+}
+
+.btn {
+    margin: auto;
+    background-color: white;
+    border: 2px solid black;
+}
+.btn:hover {
+    background-color: #c69a16;
+}
+
+
+.select_container {
+    border: 2px solid black;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+select {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0.5em 2em 0.5em 0.5em;
+    border: 1px solid #eee;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+    background-position: right 15px top 1em, right 10px top 1em;
+    background-size: 5px 5px, 5px 5px;
+}
+
+.custom-select {
+    width: 100%;
+    background-color: white;
+}
+
+#output {
+    font-weight: bolder;
+    font-size: 45px;
+}
+
+#form>h3 {
+    text-align: center;
+}
+
+.invalid-feedback,
+.valid-feedback {
+    background-color: white;
+    border: none;
+}
+
+a {
+    color: #C09200;
+}
+
+a:hover {
+    color: black;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 40px;
+}
+
+footer {
+    margin-top: 10px;
+    padding: 4px;
+    padding-bottom: 0;
+}
+#form > h3 {
+    font-size: 25px !important;
+    font-weight: bolder !important;
+    margin-bottom: 25px;
+}
+
+.modal-footer {
+    justify-content: space-evenly;
+}
+
+.modal-footer>.btn {
+    margin: 0;
+}
+
+.close {
+    font-size: 30px;
+
+}
+
+
+@media only screen and (max-width: 770px) {
+div.mx-auto.order-0 {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav-link {
+    display: flex;
+    justify-content: center;
+}
+.navbar-nav {
+    padding: 0;
+}
+}
+@media only screen and (max-width: 400px) {
+    #form {
+        width: 75% !important;
+    }
+
+    #form > * {
+        font-size: small;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    header .nav-link {
+        font-size: larger !important;
+    }
+    .img {
+        width: 90% !important;
+    }
+}
