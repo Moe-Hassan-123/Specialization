@@ -1,17 +1,23 @@
-html, body {
+html,
+body {
     background-color: #f1f1f1;
     width: 100%;
     height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
-    font-family: 'Vazirmatn', sans-serif;}
+    font-family: 'Vazirmatn', sans-serif;
+}
+
 label {
     font-size: x-large;
 }
-main, header{
+
+main,
+header {
     background-color: #f1f1f1;
 }
+
 main {
     display: flex;
     flex-direction: column;
@@ -19,11 +25,13 @@ main {
     align-items: center;
     gap: 30px;
 }
+
 /** Navigation Bar **/
 #logo {
     max-width: 86px;
     height: auto;
 }
+
 .nav-link {
     color: black;
     font-weight: bold;
@@ -33,6 +41,7 @@ main {
     --bs-link-color: #C09200;
     --bs-link-hover-color: #C09200;
 }
+
 .nav-link:hover {
     color: #C09200;
     border-bottom: 3px solid #C09200;
@@ -52,11 +61,13 @@ main {
 }
 
 #nav {
-    border-bottom: 3px solid  black;
+    border-bottom: 3px solid black;
 }
+
 .custom-select {
     width: 100%;
 }
+
 .btn_container {
     display: flex;
     margin-top: 10px;
@@ -64,7 +75,7 @@ main {
 }
 
 
-.btn  {
+.btn {
     margin: auto;
     background-color: #e9e9ed;
     border: 2px solid black;
@@ -79,9 +90,11 @@ main {
     margin-top: -10px;
     margin-bottom: 15px;
 }
+
 select::-ms-expand {
     display: none;
-  }
+}
+
 select {
     display: inline-block;
     box-sizing: border-box;
@@ -95,7 +108,7 @@ select {
     background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
     background-position: right 15px top 1em, right 10px top 1em;
     background-size: 5px 5px, 5px 5px;
-  }
+}
 
 #output {
     font-weight: bolder;
@@ -104,16 +117,20 @@ select {
     margin-bottom: 35%;
 }
 
-#form > h3 {
+#form>h3 {
     text-align: center;
 }
-.invalid-feedback, .valid-feedback {
+
+.invalid-feedback,
+.valid-feedback {
     background-color: #f1f1f1;
     border: none;
 }
+
 a {
     color: #C09200;
 }
+
 a:hover {
     color: black;
 }

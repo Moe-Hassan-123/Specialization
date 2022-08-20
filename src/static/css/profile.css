@@ -7,16 +7,20 @@ h1 {
     text-align: center;
     margin-top: 3%;
 }
+
 p {
     font-size: 30px;
 }
-#vals > p {
+
+#vals>p {
     text-align: center;
 }
+
 span {
     column-width: 100px;
 }
-#data-container{
+
+#data-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -29,7 +33,7 @@ span {
     /* seashell tan wheat */
 }
 
-.d-grid{
+.d-grid {
     margin-top: 25px;
     gap: 300px;
     display: flex !important;
@@ -41,55 +45,68 @@ span {
     display: flex;
     flex-direction: column;
 }
+
 .modal-body p {
     font-size: large;
 }
+
 /* .close, .navlink {
     font-size: smaller;
 } */
-.close, .navlink:hover {
+.close,
+.navlink:hover {
     border-bottom: none !important;
 }
+
 @media only screen and (max-width: 1000px) {
-.d-grid {
-    gap: 150px;
-}
-.btn {
-    font-size: small;
-}
-p {
-    font-size: 25px;
-}
-#data-container{
-    padding: 2%;
-}
+    .d-grid {
+        gap: 150px;
+    }
+
+    .btn {
+        font-size: small;
+    }
+
+    p {
+        font-size: 25px;
+    }
+
+    #data-container {
+        padding: 2%;
+    }
 }
 
 @media only screen and (max-width: 770px) {
-.d-grid {
-    flex-direction: column-reverse;
-    gap: 50px;
+    .d-grid {
+        flex-direction: column-reverse;
+        gap: 50px;
+    }
+
+    .btn {
+        font-size: smaller;
+    }
+
+    h1 {
+        font-size: 30px !important;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .col-5 {
+        gap: 40px;
+        display: flex;
+        flex-direction: column;
+    }
 }
-.btn {
-    font-size: smaller;
-}
-h1{
-    font-size: 30px !important;
-}
-p {
-    font-size: 18px;
-}
-.col-5 {
-    gap: 40px;
-    display: flex;
-    flex-direction: column;
-}
-}
+
 @media only screen and (max-width: 500px) {
-h1{
-    font-size: 18px;
-}
-p {
-    font-size: 14px;
-}
+    h1 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
 }

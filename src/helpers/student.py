@@ -1,18 +1,25 @@
+"""
+    A Module That Houses The Student Class which houses the functionality 
+    for interacting with the database.
+"""
 import sqlite3
 from re import fullmatch
-from helpers.myFunctions import fetch_as_dict, translate
 from werkzeug.security import check_password_hash, generate_password_hash
+from helpers.myFunctions import fetch_as_dict, translate
+
 
 class Student:
     """
     A class that stores students in a database and allow mutiple function on them.
     """
+
     # Handle The Database not existing already.
     db = sqlite3.connect("students.db", check_same_thread=False)
     c = db.cursor()
 
     # Handles The case of deletion of the database
-    c.execute("""
+    c.execute(
+    """
     CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY,
                     name TEXT NOT NULL,
                     password BLOB NOT NULL,
@@ -24,7 +31,8 @@ class Student:
                                               "l",
                                               "m",
                                               "o")));
-            """)
+    """
+    )
     db.commit()
 
     def __init__(
@@ -81,7 +89,7 @@ class Student:
         # Make sure the National id is unique
         national_ids = Student.c.execute("SELECT national_id FROM students").fetchall()
         for n in national_ids:
-            if check_password_hash(n[0], national_id) == True:
+            if check_password_hash(n[0], national_id) is True:
                 raise ValueError("الرقم القومي مسجل بقاعدة البيانات")
         self._national_id = national_id
 
@@ -91,7 +99,7 @@ class Student:
 
     @name.setter
     def name(self, name: str):
-        if type(name) is not str:
+        if not isinstance(name, str):
             raise (TypeError)
 
         # Handle All White Space in the name
@@ -110,8 +118,8 @@ class Student:
     def grade(self, grade: int):
         try:
             grade = int(grade)
-        except TypeError:
-            raise TypeError(".العام الدراسي خطأ")
+        except TypeError as exc:
+            raise TypeError(".العام الدراسي خطأ") from exc
         if grade not in [1, 2]:
             raise ValueError("العام الدراسي يجب ان يكون ثانية ثانوي او ثالثة ثانوي")
         self._grade = grade
@@ -151,7 +159,7 @@ class Student:
                 self.specialization,
             ],
         ).lastrowid
-        if id == None:
+        if id is None:
             raise Exception("لم يتم تسجيل الطالب")
         Student.db.commit()
         return id
@@ -170,9 +178,9 @@ class Student:
             Student.c, "SELECT id,name,password,national_id FROM students"
         )
         for user in users:
-            if check_password_hash(user["password"], password) == False:
+            if check_password_hash(user["password"], password) is False:
                 continue
-            if check_password_hash(user["national_id"], national_id) == False:
+            if check_password_hash(user["national_id"], national_id) is False:
                 continue
             return user["id"]
         return False
@@ -191,7 +199,7 @@ class Student:
         return "تم حذف بيانات الطالب بنجاح"
 
     def edit(id: int, new_specialization: str, grade: int) -> str:
-        """Changes The Speciality of the Student
+        """Changes The Speciality and Grade of the Student
 
         Args:
             data (dict): Students Info
@@ -206,7 +214,7 @@ class Student:
 
         # Student Changed Nothing
         if old["grade"] == grade and old["specialization"] == new_specialization:
-            return f".البيانات متطابقة مع بياناتك الحالية. لم يتم اي تغيير"
+            return ".البيانات متطابقة مع بياناتك الحالية. لم يتم اي تغيير"
 
         Student.c.execute(
             """
@@ -222,14 +230,14 @@ class Student:
         # translate changed the values from numeric and english to arabic.
         new_specialization = translate(new_specialization)
         old["specialization"] = translate(old["specialization"])
-        
+
         old["grade"] = translate(old["grade"])
         grade = translate(grade)
-        
+
         # Student Changed Both Grade and Specialization
         if old["grade"] != grade and old["specialization"] != new_specialization:
             return f"تم تغيير السنة الدراسية من {old['grade']} الي {grade} و التخصص تغير من {old['specialization']} الي {new_specialization}"
-                
+
         # Student Changed Specialization only
         if old["grade"] == grade and old["specialization"] != new_specialization:
             return f"تم تغيير تخصصك من {old['specialization']} الي {new_specialization}"
@@ -237,7 +245,6 @@ class Student:
         # Student Changed Grade Only
         if old["grade"] != grade and old["specialization"] == new_specialization:
             return f"تم تغيير السنة الدراسية من {old['grade']} الي {grade}"
-        
 
     def fetch(id: int) -> dict:
         """Returns The Data Of The Student
@@ -263,4 +270,6 @@ class Student:
         Returns:
             str: name of student
         """
-        return fetch_as_dict(Student.c, "SELECT name FROM students WHERE id = ?", id)[0]["name"]
+        return fetch_as_dict(Student.c, "SELECT name FROM students WHERE id = ?", id)[
+            0
+        ]["name"]

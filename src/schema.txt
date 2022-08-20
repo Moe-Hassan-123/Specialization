@@ -1,4 +1,4 @@
-CREATE TABLE students (id INTEGER PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY,
                        name TEXT NOT NULL,
                        password BLOB NOT NULL,
                        national_id BLOB NOT NULL,

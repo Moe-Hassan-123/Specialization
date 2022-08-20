@@ -10,11 +10,13 @@
     color: black;
     background-color: #c69a16;
 }
+
 /* The Button While being collapsed */
-.accordion-button:not(.collapsed)::after
-{
-    background-image: var(--bs-accordion-btn-icon);;
+.accordion-button:not(.collapsed)::after {
+    background-image: var(--bs-accordion-btn-icon);
+    ;
 }
+
 /* General Accordion button */
 .accordion-button::after {
     margin-left: 0;

@@ -1,11 +1,12 @@
-from flask import render_template,redirect, url_for,session
 from functools import wraps
+from flask import render_template, redirect, url_for, session
+
 
 def give_output(message) -> None:
     return render_template("output.html", message=message)
 
 
-# FROM https://www.codegrepper.com/code-examples/python/python+cursor+fetchall+to+dictionary
+# https://www.codegrepper.com/code-examples/python/python+cursor+fetchall+to+dictionary
 def fetch_as_dict(cursor, cursorQuery: str, *params) -> dict:
     """Graps Data from sqlite3 database in the form of a dictionary
 
@@ -28,17 +29,20 @@ def fetch_as_dict(cursor, cursorQuery: str, *params) -> dict:
 
 def login_required(f):
     """
-        Decorate routes to require login.
-        https://flask.palletsprojects.com/en/1.1.x/patterns/viewdecorators/
+    Decorate routes to require login.
+    https://flask.palletsprojects.com/en/1.1.x/patterns/viewdecorators/
     """
+
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if session.get("id") is None:
-            return redirect(url_for('login'))
+            return redirect(url_for("login"))
         return f(*args, **kwargs)
+
     return decorated_function
 
-def translate(val :str | int) -> str:
+
+def translate(val: str | int) -> str:
     """Changes Values from numeric and english to understandable arabic values.
 
     Args:

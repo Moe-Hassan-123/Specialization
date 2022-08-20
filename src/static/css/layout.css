@@ -82,6 +82,7 @@ header .nav-link {
     background-color: white;
     border: 2px solid black;
 }
+
 .btn:hover {
     background-color: #c69a16;
 }
@@ -150,7 +151,8 @@ footer {
     padding: 4px;
     padding-bottom: 0;
 }
-#form > h3 {
+
+#form>h3 {
     font-size: 25px !important;
     font-weight: bolder !important;
     margin-bottom: 25px;
@@ -171,27 +173,30 @@ footer {
 
 
 @media only screen and (max-width: 770px) {
-div.mx-auto.order-0 {
-    width: 100%;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-around;
-    align-items: center;
+    div.mx-auto.order-0 {
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .nav-link {
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbar-nav {
+        padding: 0;
+    }
 }
-.nav-link {
-    display: flex;
-    justify-content: center;
-}
-.navbar-nav {
-    padding: 0;
-}
-}
+
 @media only screen and (max-width: 400px) {
     #form {
         width: 75% !important;
     }
 
-    #form > * {
+    #form>* {
         font-size: small;
     }
 }
@@ -200,6 +205,7 @@ div.mx-auto.order-0 {
     header .nav-link {
         font-size: larger !important;
     }
+
     .img {
         width: 90% !important;
     }

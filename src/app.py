@@ -1,10 +1,15 @@
-# Libraries
-import os
-from flask import Flask, render_template, url_for, session, request, redirect, make_response
-from flask_session import Session
 import webbrowser
+from flask_session import Session
+from flask import (
+    Flask,
+    render_template,
+    url_for,
+    session,
+    request,
+    redirect,
+)
 
-# My Own Libraries
+# My Modules
 from helpers.myFunctions import give_output, login_required, translate
 from helpers.student import Student
 
@@ -14,9 +19,12 @@ app.config["SESSION_TYPE"] = "filesystem"
 
 Session(app)
 
+
 @app.after_request
 def after_request(response):
-    """Ensure responses aren't cached"""
+    """
+    Ensure responses aren't cached
+    """
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     response.headers["Expires"] = 0
     response.headers["Pragma"] = "no-cache"
@@ -71,14 +79,15 @@ def register():
         url_for(
             "student_profile", msg="تم التسجيل بنجاح!\n يمكنك تعديل بياناتك او الخروج"
         ),
-        code=307
+        code=307,
     )
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    """Log user in"""
-
+    """
+    Log user in
+    """
     # if they Got there while being logged in we should redirect to profile page.
     if session.get("id"):
         return redirect(url_for("student_profile"))
@@ -142,11 +151,7 @@ def edit():
         new_grade == 2 and new_special not in ["l", "m", "o"]
     ):
         return redirect(
-            url_for(
-                "student_profile",
-                msg="تخصص وسنة دراسية غير متوافقين"
-            ),
-            code=307
+            url_for("student_profile", msg="تخصص وسنة دراسية غير متوافقين"), code=307
         )
 
     return redirect(
@@ -161,23 +166,27 @@ def edit():
 @app.route("/logout", methods=["POST"])
 @login_required
 def logout():
+    """
+    logs user out and clears the session
+    """
     session.clear()
     return render_template("index.html")
 
 
-@app.route("/shutdown", methods=["POST"])
-def shutdown():
-    os._exit(0)
-
-
 @app.errorhandler(404)
 def not_found_error(error):
-    return render_template('error.html', msg="File Not Found", code=404), 404
+    """
+    Handles Not Found (404) Errors
+    """
+    return render_template("error.html", msg="File Not Found", code=404), 404
 
 
 @app.errorhandler(405)
 def method_not_allowed_error(error):
-    return render_template('error.html', msg="Method Isn't Allowed", code=405), 405
+    """
+    Handles Method Not Allowed (405) Errors
+    """
+    return render_template("error.html", msg="Method Isn't Allowed", code=405), 405
 
 
 if __name__ == "__main__":
